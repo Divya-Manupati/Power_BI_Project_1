@@ -1,0 +1,58 @@
+# Overview:
+
+Sales Insights Dashboard:
+
+I undertook the Sales Insights Dashboard project with the goal of creating a comprehensive dashboard that presents sales insights through various visuals on a single page. Leveraging my creativity, I strived to represent the available data in the most effective manner. Here are the key tasks I accomplished:
+
+1. Data Gathering / Requirement:
+- I gathered the necessary data to assemble the sales reports and create the dashboard. This involved collecting data from multiple sources, including:
+> Sales data stored in a folder structure by year.
+> Categories information provided in an Excel format.
+> Geography data available in an Excel format.
+> Product information stored in a CSV or database format.
+> SalesRep details provided in an Excel format.
+> SubCategories data available in an Excel format.
+
+Task 1.1: Data Loading Mechanism:
+To streamline the data loading process, I created a mechanism that loaded all the files from the sales folder into a single Sales fact table. This mechanism was designed to be resilient, allowing for the removal of files without causing errors and automatically incorporating new yearly sales files upon refresh.
+
+2. Data Modeling:
+- In the data modeling phase, I performed the following tasks:
+
+Task 2.1: Transformations to Sales Fact Table:
+To enhance analysis capabilities, I split the Country and City information from the "Location" field in the Sales fact table. Additionally, I ensured the correct data type was set to enable geographic mapping. Furthermore, I made necessary updates to the Date field to establish the appropriate date format.
+
+Task 2.2: Creating Unique Keys:
+To establish relationships between tables, I created a unique key (GeoKey) in both the Sales and Geography tables.
+
+Task 2.3: Dimensional Query Treatment:
+To improve the dimensional queries for SalesRep and Sub Category, I developed a small function that removed the "ID - " part from the respective ID columns. This function could be invoked and reused to clean the IDs in both queries.
+
+Task 2.4: Data Model Creation:
+To establish the overall structure of the dashboard, I connected all tables and utilized the pre-existing Calendar table available in the Power BI file (pbix).
+
+3. DAX calculations:
+To derive important measures and calculations for sales analysis, I performed the following tasks:
+
+Task 3.1: Total Revenue Calculation:
+I calculated the Total Revenue in the Sales table by multiplying the product's retail price by the units sold.
+
+Task 3.2: Total Cost Calculation:
+Using the product's standard cost and the units sold, I calculated the Total Cost in the Sales table.
+
+Task 3.3: Gross Profit Calculation:
+I derived the Gross Profit in the Sales table by subtracting the Total Cost from the Total Revenue.
+
+Task 3.4: Gross Profit MoM Growth Change%:
+To facilitate decision-making, I calculated the Gross Profit Month-over-Month (MoM) growth Change% measure.
+
+Task 3.5: Average Sales per Day Calculation:
+To determine the average daily sales, I calculated the sum of the Total Revenue per day based on the actual sales dates.
+
+Task 3.7: Breakdown Analysis by Product:
+For analyzing product performance, I performed a breakdown analysis to identify any drop or increase. Additionally, I calculated time measures such as Quarter-over-Quarter (QoQ) growth, which is essential for the Quarterly Business Review (QBR) report.
+
+4. Assembling the Sales Reports Dashboard:
+Utilizing the derived measures and calculations, I assembled a one-page sales reports dashboard. The dashboard incorporated a variety of visuals to effectively present the sales insights. I used my imagination to create visually appealing representations of the available data. When plotting the month on the x-axis, I ensured that the months were sorted from January to December for proper ordering.
+
+In conclusion, this project allowed me to create a Sales Insights Dashboard that provides valuable insights into sales performance and trends. By visualizing and analyzing the data in an intuitive and comprehensive manner, stakeholders can make informed decisions and develop effective strategies for sales analysis, forecasting, and strategic planning.
