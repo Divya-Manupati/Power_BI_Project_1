@@ -1,0 +1,61 @@
+Project Description: Sales Insights Dashboard
+
+The objective of this project is to create a comprehensive sales insights dashboard that provides valuable information
+and visualizations to support data-driven decision-making. The dashboard will showcase sales data in a one-page layout, 
+utilizing various visuals to effectively represent the available data.
+
+1. Data Gathering / Requirement:
+The following data sources will be used to assemble the sales reports and create the dashboard:
+
+> Sales data: Organized in a folder structure by year.
+> Categories: Provided in an Excel format.
+> Geography: Provided in an Excel format.
+> Product: Available in a CSV or database format.
+> > SalesRep: Provided in an Excel format.
+> SubCategories: Provided in an Excel format.
+
+Task 1.1: Data Loading Mechanism
+A mechanism will be developed to load all the files from the sales folder into a single Sales fact table. 
+This mechanism should be resilient, meaning that removing a file from the sales folder should not result in errors, and 
+adding a new yearly sales file should be automatically loaded into the fact query upon refresh.
+
+2. Data Modeling:
+
+Task 2.1: Transformations to Sales Fact Table
+Transformations will be applied to the Sales fact table to split the country and city into the "Location" field. Correct
+data types will be set to allow for geographic mapping. Additionally, updates will be made to the Date field to 
+ensure the correct date format can be set.
+
+Task 2.2: Creating Unique Keys
+Unique keys (GeoKey) will be created in both the Sales and Geography tables to establish relationships between them.
+
+Task 2.3: Dimensional Query Treatment
+The dimensional queries for SalesRep and Sub Category require additional treatment. Some ID columns have a specific format. 
+A small function will be created to remove the "ID - " part from these columns, which can be invoked and reused for these 
+two queries to clean the IDs.
+
+Task 2.4: Data Model Creation
+A data model will be created by connecting all tables and utilizing the pre-existing Calendar table available in the Power 
+BI file (pbix).
+
+3. DAX Calculations:
+Several DAX calculations will be implemented to derive important measures for the sales insights:
+
+Task 3.1: Total Revenue calculation based on the product's retail price multiplied by the units sold.
+Task 3.2: Total Cost calculation based on the product's standard cost multiplied by the units sold.
+Task 3.3: Gross Profit calculation as the difference between Total Revenue and Total Cost.
+Task 3.4: Gross Profit Month-over-Month (MoM) growth Change% measure for decision-making.
+Task 3.5: Average sales per day calculation by summing the Total Revenue per day based on actual sales dates.
+Task 3.7: Breakdown Analysis by Product for identifying any drop or increase. Time measures like Quarter-over-Quarter (QoQ) growth 
+will also be calculated for the QBR (Quarterly Business Review) report.
+
+4. Creating the Sales Reports Dashboard:
+Using the derived measures and calculations, a one-page sales reports dashboard will be created. Various visuals will be 
+employed to effectively showcase the sales insights. The dashboard design will be flexible, allowing for creative representation 
+of the available data. When plotting the month on the x-axis, proper sorting from January to December will be ensured.
+
+By completing this project, stakeholders will gain valuable insights into sales performance and trends, enabling informed
+decision-making and strategic planning. The sales insights dashboard will serve as a powerful tool to visualize and analyze 
+the sales data in an intuitive and comprehensive manner.
+
+END
